@@ -1,0 +1,189 @@
+ScreenManager:
+    LoginWindow:
+    MainWindow:
+    CreateAccountWindow:
+
+
+<LoginWindow>:
+    name: "login"
+
+    username: username
+    password: password
+
+    MDTextField:
+        id: username
+        hint_text: "Username"
+        write_tab: False
+        multiline: False
+        pos_hint: {'center_x':0.5, 'center_y':0.8}
+        size_hint_x: .5
+
+    MDTextField:
+        id: password
+        hint_text: "Password"
+        write_tab: False
+        multiline: False
+        password: True
+        pos_hint: {'center_x':0.5, 'center_y':0.7}
+        size_hint_x: .5
+
+    MDRectangleFlatButton:
+        text: "Login"
+        pos_hint: {'center_x':0.5, 'center_y':0.5}
+        on_press:
+            root.manager.transition.direction = "left"
+            root.login_btn()
+
+    MDRectangleFlatButton:
+        text: "Need an account? Create Account"
+        pos_hint: {'center_x':0.5, 'center_y':0.3}
+        on_press: root.manager.current = 'create'
+
+
+<CreateAccountWindow>:
+    name: "create"
+
+    username: username
+    password: password
+    passwordConfirmation: passwordConfirmation
+
+    MDTextField:
+        id: username
+        hint_text: "Username"
+        write_tab: False
+        multiline: False
+        pos_hint: {'center_x':0.5, 'center_y':0.8}
+        size_hint_x: .5
+
+    MDTextField:
+        id: password
+        hint_text: "Password"
+        write_tab: False
+        multiline: False
+        password: True
+        pos_hint: {'center_x':0.5, 'center_y':0.7}
+        size_hint_x: .5
+
+    MDTextField:
+        id: passwordConfirmation
+        hint_text: "Password confirmation"
+        write_tab: False
+        multiline: False
+        password: True
+        pos_hint: {'center_x':0.5, 'center_y':0.6}
+        size_hint_x: .5
+
+    MDRectangleFlatButton:
+        text: "Already have an account? Login"
+        pos_hint: {'center_x':0.5, 'center_y':0.4}
+        on_press:
+            root.manager.transition.direction = "right"
+            root.manager.current = 'login'
+
+    MDRectangleFlatButton:
+        text: "Create Account"
+        pos_hint: {'center_x':0.5, 'center_y':0.2}
+        on_press: root.create_account_btn()
+
+
+<MainWindow>:
+    name: "main"
+
+    currency_amount: currency_amount
+
+    MDLabel:
+        text: "Select the currencies you wish to convert"
+        halign: "center"
+        pos_hint: {'center_x':0.5, 'center_y':0.95}
+
+    MDTextField:
+        id: currency_amount
+        hint_text: "Amount"
+        write_tab: False
+        multiline: False
+        pos_hint: {'center_x':0.4, 'center_y':0.8}
+        size_hint_x: .35
+
+    MDRectangleFlatButton:
+        text: "Convert"
+        pos_hint: {'center_x':0.7, 'center_y':0.8}
+        on_press: root.convert_currency()
+
+    MDLabel:
+        id: label_from
+        text: ""
+        halign: "center"
+        pos_hint: {'center_x':0.28, 'center_y':0.65}
+
+    MDLabel:
+        id: label_to
+        text: ""
+        halign: "center"
+        pos_hint: {'center_x':0.68, 'center_y':0.65}
+
+    MDBoxLayout:
+        orientation: "vertical"
+        pos_hint: {'center_x':0.3, 'center_y':0.1}
+        padding: 212, 0
+
+        ScrollView:
+            MDList:
+                OneLineListItem:
+                    text: "ADA"
+                    on_press: root.set_selected_currency("FROM", "ADA")
+                OneLineListItem:
+                    text: "BNB"
+                    on_press: root.set_selected_currency("FROM", "BNB")
+                OneLineListItem:
+                    text: "BTC"
+                    on_press: root.set_selected_currency("FROM", "BTC")
+                OneLineListItem:
+                    text: "ETH"
+                    on_press: root.set_selected_currency("FROM", "ETH")
+                OneLineListItem:
+                    text: "DOGE"
+                    on_press: root.set_selected_currency("FROM", "DOGE")
+                OneLineListItem:
+                    text: "BUSD"
+                    on_press: root.set_selected_currency("FROM", "BUSD")
+                OneLineListItem:
+                    text: "BUSD"
+                    on_press: root.set_selected_currency("FROM", "BUSD")
+                OneLineListItem:
+                    text: "BUSD"
+                    on_press: root.set_selected_currency("FROM", "BUSD")
+                OneLineListItem:
+                    text: "BUSD"
+                    on_press: root.set_selected_currency("FROM", "BUSD")
+
+    MDLabel:
+        text: "To"
+        halign: "center"
+        pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+    MDBoxLayout:
+        orientation: "vertical"
+        pos_hint: {'center_x':0.7, 'center_y':0.1}
+        padding: 2, 0
+        height: 100
+
+        ScrollView:
+            MDList:
+                OneLineListItem:
+                    text: "ADA"
+                    on_press: root.set_selected_currency("TO", "ADA")
+                OneLineListItem:
+                    text: "BNB"
+                    on_press: root.set_selected_currency("TO", "BNB")
+                OneLineListItem:
+                    text: "BTC"
+                    on_press: root.set_selected_currency("TO", "BTC")
+                OneLineListItem:
+                    text: "ETH"
+                    on_press: root.set_selected_currency("TO", "ETH")
+                OneLineListItem:
+                    text: "DOGE"
+                    on_press: root.set_selected_currency("TO", "DOGE")
+                OneLineListItem:
+                    text: "BUSD"
+                    on_press: root.set_selected_currency("TO", "BUSD")
