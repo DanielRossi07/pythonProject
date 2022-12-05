@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = Crypto Converter
 
 # (str) Package name
-package.name = myapp
+package.name = CryptoConverter
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -66,7 +66,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 1.9.1
+osx.kivy_version = 2.1.0
 
 #
 # Android specific
